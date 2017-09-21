@@ -7,19 +7,60 @@ import threading
 class Kmeans(threading.Thread):
     def __init__(self,datas,num_of_cluster,num_of_steps,object):
         threading.Thread.__init__(self)
-        self.datas = datas
+        self.datas = datas #tuple
         self.num_of_cluster = num_of_cluster
         self.num_of_steps = num_of_steps
         self.object = object
+
+    def option(self, kmeans_plusplus):
+        self.kmeans_plusplus = kmeans_plusplus
 
     def run(self):
         self.core()
 
     def initialization(self):
-        return random.sample(list(self.datas.values()), self.num_of_cluster)
+
+        if self.kmeans_plusplus :
+            ## k-means++ algorithm
+            init_centroids = []
+            init_centroids.append( random.choice(list(self.datas.values())) )
+        
+            while len(init_centroids) < self.num_of_cluster:
+                probablity = {}
+                sum = 0
+
+                for data in self.datas.items():
+                    min = sys.maxsize
+                    for centroid in init_centroids:
+                        if min > self.distance(data[1], centroid):
+                            min = self.distance(data[1], centroid)
+                
+                    probablity[data[0]] = min
+                    sum += min
+
+                #make range to cumulative
+                for key in probablity.keys():
+                    probablity[key] /= sum
+                    probablity[key] *= 100
+
+                ## stochastic random generator
+                r = random.randrange(1,100)
+
+                sum =0
+                for key in probablity.keys():
+                    sum += probablity[key]
+
+                    if sum > r:
+                        init_centroids.append(self.datas[key])
+                        break
+
+            return init_centroids
+
+        else :
+            return random.sample(list(self.datas.values()), self.num_of_cluster)
 
     def core(self):
-        centroids = self.initialization()
+        centroids = self.initialization() #list
 
         i=0
         while True:

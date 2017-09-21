@@ -7,8 +7,9 @@ from PyQt5.QtCore import QFileInfo
 class CuiMain():
     def __init__(self,argv):
         self.argv = argv
+        self.option1_km_pp = True
 
-    def run(self):
+    def run(self):        
         self.core()
 
     def core(self):
@@ -29,6 +30,7 @@ class CuiMain():
 
         ##k-means process
         kmeans = Kmeans(pixels,self.num_of_cluster(),self.num_of_steps(),self)
+        kmeans.option(self.option1_km_pp)
         kmeans.start()
 
 

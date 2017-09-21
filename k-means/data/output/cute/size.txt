@@ -1,0 +1,25 @@
+# cluster : size(kb)
+# cute.jpg
+2 52.0	#2-means_cute.jpg
+3 63.9	#3-means_cute.jpg
+4 64.5	#4-means_cute.jpg
+5 68.2	#5-means_cute.jpg
+6 69.6	#6-means_cute.jpg
+7 70.0	#7-means_cute.jpg
+8 71.0	#8-means_cute.jpg
+9 72.3	#9-means_cute.jpg
+10 72.8	#10-means_cute.jpg
+99 70.3	#original.jpg
+
+
+# cute.png
+2 17.8	#2-means_cute.png
+3 30.3	#3-means_cute.png 
+4 35.5	#4-means_cute.png
+5 44.2	#5-means_cute.png
+6 51.5	#6-means_cute.png
+7 58.7	#7-means_cute.png
+8 66.1	#8-means_cute.png
+9 68.8	#9-means_cute.png
+10 76.6	#10-means_cute.png
+99 603	#original.png

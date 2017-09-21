@@ -1,3 +1,4 @@
+import webbrowser
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
@@ -16,22 +17,22 @@ class XMainWindow(QMainWindow, Ui_MainWindow, CuiMain):
     def initUi(self):
         self.pixmap = QPixmap()
         self.file_name = str()
+        self.option1_km_pp = True
         self.commandLinkButton.clicked.connect(self.commandLinkButton_Event)
         self.openDirectoryButton.clicked.connect(self.openDirectoryButton_Event)
         self.actionOpen.triggered.connect(self.actionOpen_Event)
         self.actionAbout.triggered.connect(self.actionAbout_Event)
         self.actionExit.triggered.connect(self.close)
+        self.actionGoto_gitHub.triggered.connect(lambda: webbrowser.open("https://github.com/NarciSource/K-means"))
         self.dial.valueChanged.connect(self.label_4.setNum)
+        self.actionOption1.triggered.connect(self.actionOption1_Event)
+
 
     ##Event
     def commandLinkButton_Event(self):
         if self.pixmap.isNull():
             msgbox = QMessageBox(self)
             msgbox.information(self,"Warning","No image")
-            #self.complete =0
-            #while self.complete < 100:
-            #    self.complete += 0.0001
-            #    self.progressBar.setValue(self.complete)
         else:
             self.complete = 0
 
@@ -54,7 +55,18 @@ class XMainWindow(QMainWindow, Ui_MainWindow, CuiMain):
         msgbox = QMessageBox(self)
         msgbox.information(self,"About","Chung Ang Univ\nName : Jeong Won Cheol\nStudent Code : 20113560")
 
+    def actionOption1_Event(self):
+        self.option1_km_pp = not self.option1_km_pp
 
+
+    def core_result(self, pixels):
+        result_image = self.convert_image_from(pixels)
+        self.image_Save(result_image)
+    
+        self.complete =0
+        while self.complete < 100:
+            self.complete += 0.0001
+            self.progressBar.setValue(self.complete)
 
     ##member function
     def image_Into(self,file_name):
@@ -74,6 +86,7 @@ class XMainWindow(QMainWindow, Ui_MainWindow, CuiMain):
         ##draw image
         self.afterImage.setScaledContents(True)
         self.afterImage.setPixmap(QPixmap.fromImage(image))
+
 
 
     def filename(self):

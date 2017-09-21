@@ -1,0 +1,26 @@
+# cluster : size(kb)
+# potato.jpg
+2 21.7	#2-means_potato.jpg
+3 21.2	#3-means_potato.jpg
+4 21.3	#4-means_potato.jpg
+5 32.1	#5-means_potato.jpg
+6 31.8	#6-means_potato.jpg
+7 29.9	#7-means_potato.jpg
+8 30.5	#8-means_potato.jpg
+9 30.0	#9-means_potato.jpg
+10 30.0	#10-means_potato.jpg
+99 54.7	#original_potato.jpg
+
+
+# potato.png
+# cluster : size(kb)
+2 6.90	#2-means_potato.png
+3 12.6	#3-means_potato.png
+4 15.3	#4-means_potato.png
+5 20.3	#5-means_potato.png
+6 17.0	#6-means_potato.png
+7 21.2	#7-means_potato.png
+8 23.1	#8-means_potato.png
+9 25.6	#9-means_potato.png
+10 28.7	#10-means_potato.png
+99 176	#original_potato.png

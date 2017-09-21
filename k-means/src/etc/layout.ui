@@ -316,7 +316,14 @@ directory</string>
     <addaction name="actionGoto_gitHub"/>
     <addaction name="actionAbout"/>
    </widget>
+   <widget class="QMenu" name="menuOption">
+    <property name="title">
+     <string>Option</string>
+    </property>
+    <addaction name="actionOption1"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuOption"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -338,6 +345,17 @@ directory</string>
   <action name="actionGoto_gitHub">
    <property name="text">
     <string>Goto gitHub</string>
+   </property>
+  </action>
+  <action name="actionOption1">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>K-means++</string>
    </property>
   </action>
  </widget>
